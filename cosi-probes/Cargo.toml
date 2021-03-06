@@ -1,0 +1,29 @@
+[package]
+name = "cosi-probes"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "acpi"
+path = "./src/acpi/main.rs"
+required-features = ["probes"]
+
+[[bin]]
+name = "disk"
+path = "./src/disk/main.rs"
+required-features = ["probes"]
+
+[features]
+default = []
+probes = []
+
+[dependencies]
+cty = "0.2.1"
+redbpf-macros = "1.3.0"
+redbpf-probes = "1.3.0"
+
+[build-dependencies]
+cargo-bpf = "1.3.0"
