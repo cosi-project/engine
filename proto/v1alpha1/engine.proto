@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package engine;
+
+service Engine {
+  rpc Register(Plugin) returns (RegisterResponse);
+}
+
+message Plugin{
+  string name = 1;
+}
+
+message RegisterResponse {}
+
+// KernelParameter describes the configuration options for a kernel parameter.
+//
+// https://man7.org/linux/man-pages/man2/sysctl.2.html.
+// https://man7.org/linux/man-pages/man8/sysctl.8.html.
+message KernelParameter {
+  string key = 1;
+  string value = 2;
+}
+
+// Mount describes the configuration options for mounts.
+//
+// https://man7.org/linux/man-pages/man2/mount.2.html.
+// https://man7.org/linux/man-pages/man8/mount.8.html.
+message Mount {
+  string source = 1;
+  string target = 2;
+  string type = 3;
+  repeated string options = 4;
+}
+
+// Resolver describes configuration options for the resolver.
+//
+// https://man7.org/linux/man-pages/man5/resolv.conf.5.html.
+message Resolver{
+  repeated string nameserver = 1;
+  string search = 2;
+  repeated string sortlist = 3;
+  repeated ResolverOptions options = 4;
+}
+
+message ResolverOptions{
+  bool debug = 1;
+  uint32 ndots = 2;
+  uint32 timeout = 3;
+  uint32 attempts = 4;
+  bool rotate = 5;
+  bool no_check_names = 6;
+  bool inet6 = 7;
+  bool ip6_bytestring = 8;
+  bool ip6_dotint = 9;
+  bool edns0 = 10;
+  bool single_request = 11;
+  bool single_request_reopen = 12;
+  bool no_tld_query = 13;
+  bool use_vc = 14;
+  bool no_reload = 15;
+  bool trust_ad = 16;
+}

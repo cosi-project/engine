@@ -1,0 +1,8 @@
+api: cosi.dev
+version: '1'
+type: Resolver
+namespace: system
+id: local
+spec:
+  search: local
+

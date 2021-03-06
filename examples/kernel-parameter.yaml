@@ -1,0 +1,18 @@
+api: cosi.dev
+version: '1'
+type: KernelParameter
+namespace: system
+id: domainname
+spec:
+  key: kernel.domainname
+  value: cosi.dev
+---
+api: cosi.dev
+version: '1'
+type: KernelParameter
+namespace: system
+id: ipv4-ip-forward
+spec:
+  key: net.ipv4.ip_forward
+  value: '0'
+
