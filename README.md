@@ -3,6 +3,8 @@
 
 This project is an implementation of the COSI [specification](https://github.com/cosi-spec/specification) written in [Rust](https://www.rust-lang.org).
 
+This engine is effectively a `systemd` (pid 1) alternative with a COSI compliant API.
+
 ## Roadmap
 
 - [x] Signal handling.
