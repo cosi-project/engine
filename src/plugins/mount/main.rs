@@ -26,6 +26,8 @@ async fn main() {
 
     let socket = buffer.as_str().to_owned();
 
+    println!("Registering at {}", socket);
+
     let r = plugin::register(socket.clone(), NAME.to_owned()).await;
 
     match r {
