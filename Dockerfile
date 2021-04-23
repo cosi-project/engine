@@ -53,6 +53,7 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry --mount=type=cache,targe
   cargo build --frozen --locked --offline --target-dir=/usr/local/target --target x86_64-unknown-linux-musl --release --all
 ARG TARGETPLATFORM
 ENV TARGETPLATFORM=${TARGETPLATFORM}
+COPY --from=ghcr.io/cosi-project/runtime:latest /runtime /binaries/runtime
 RUN --mount=type=cache,target=/usr/local/target \
   ./hack/binaries.sh
 

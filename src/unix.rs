@@ -109,6 +109,7 @@ impl AsyncWrite for UnixStream {
 }
 
 pub mod process {
+    use crate::consts;
     use crate::unix::process::reaper::Reaper;
     use manager::Manager;
     use nix::unistd::Pid;
@@ -126,6 +127,7 @@ pub mod process {
             let mut child = match Command::new(executable.clone())
                 .stdout(Stdio::piped())
                 .stdin(Stdio::piped())
+                .args(&["--address", consts::ADDRESS_RUNTIME])
                 .spawn()
             {
                 Ok(child) => child,
